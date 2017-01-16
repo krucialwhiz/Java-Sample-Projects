@@ -2,13 +2,16 @@
 * incurred from operating his or her automobile: loan payment, insurance, gas, oil, tires, and maintenance.
 * The program should then display the total monthly cost of these expenses,
 * and the total annual cost of these expenses.
- */
+*/
 
+// Libraries used
+import java.text.DecimalFormat;
 import java.util.Scanner;
 
 public class automobileCosts {
 
     static Scanner userInput = new Scanner(System.in);
+    static DecimalFormat roundOff = new DecimalFormat("#.00");
 
     public static void main(String[] args) {
 
@@ -16,7 +19,7 @@ public class automobileCosts {
         double monthlyTotal, yearlyTotal;
 
         System.out.println("Enter the monthly cost for each of the following expenses \n");
-        
+
         // input for all monthly expenses
         System.out.print("Loan Payment: $");
         loanPayment = userInput.nextDouble();
@@ -30,27 +33,30 @@ public class automobileCosts {
         tires = userInput.nextDouble();
         System.out.print("Maintenance: $");
         maintenance = userInput.nextDouble();
-        
+
         System.out.println();
 
         // all calculations for monthly and yearly expenses
         monthlyTotal = loanPayment + insurance + gas + oil + tires + maintenance;
         yearlyTotal = monthlyTotal * 12;
-        
+
         System.out.println("Expenses \t\t Monthly Cost \t\t Yearly Cost");
         System.out.println("------------------------------------------------------------");
-        
-        System.out.println("Loan Payment \t\t" + "$" + loanPayment + "\t\t\t " + "$" + (loanPayment * 12));
-        System.out.println("Insurance \t\t" + "$" + insurance + "\t\t\t " + "$" + (insurance * 12));
-        System.out.println("Gas \t\t\t" + "$" + gas + "\t\t\t " + "$" + (gas * 12));
-        System.out.println("Oil \t\t\t" + "$" + oil + "\t\t\t " + "$" + (oil * 12));
-        System.out.println("Tires \t\t\t" + "$" + tires + "\t\t\t " + "$" + (tires * 12));
-        System.out.println("Maintenance \t\t" + "$" + maintenance + "\t\t\t " + "$" + (maintenance * 12));
-        
+
+        System.out.println("Loan Payment \t\t" + " $" + roundOff.format(loanPayment) + "\t\t " + 
+                "$" + roundOff.format(loanPayment * 12));
+        System.out.println("Insurance \t\t" + " $" + roundOff.format(insurance) + "\t\t " + 
+                "$" + roundOff.format(insurance * 12));
+        System.out.println("Gas \t\t\t" + " $" + roundOff.format(gas) + "\t\t " + "$" + roundOff.format(gas * 12));
+        System.out.println("Oil \t\t\t" + " $" + roundOff.format(oil) + "\t\t " + "$" + roundOff.format(oil * 12));
+        System.out.println("Tires \t\t\t" + " $" + roundOff.format(tires) + "\t\t " + "$" + roundOff.format(tires * 12));
+        System.out.println("Maintenance \t\t" + " $" + roundOff.format(maintenance) + "\t\t " + 
+                "$" + roundOff.format(maintenance * 12));
+
         System.out.println();
-        
-        System.out.println("Monthly Total: $" + monthlyTotal);
-        System.out.println("Yearly Total: $" + yearlyTotal);
+
+        System.out.println("Monthly Total: $" + roundOff.format(monthlyTotal));
+        System.out.println("Yearly Total: $" + roundOff.format(yearlyTotal));
 
     }
 

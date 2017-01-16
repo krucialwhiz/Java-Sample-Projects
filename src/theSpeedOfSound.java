@@ -1,8 +1,8 @@
 /* The following table shows the approximate speed of sound in air, water, and steel.
-*  Medium		Speed
-Air			1,100 feet per second
-Water		4,900 feet per second
-Steel       16,400 feet per second
+*  Medium           Speed
+*    Air                    1,100 feet per second
+*    Water               4,900 feet per second
+*    Steel                 16,400 feet per second
 *
 * Write a program that displays a menu allowing the user to select air, water, or steel.
 * After the user has made a selection, he or she should be asked to enter the distance
