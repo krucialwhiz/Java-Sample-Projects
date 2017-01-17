@@ -5,12 +5,33 @@
 *        •	The amount paid for the stock alone (without the commission)
 *        •	The amount of the commission
 *        •	The total amount paid (for the stock plus the commission)
-*/
+ */
 
 public class stockCommission {
-    
-    public static void main (String[] args){
-        
+
+    public static void main(String[] args) {
+
+        // variables
+        int shares = 750; // number of shares 
+        int pricePerShare = 35; // price for each share
+
+        final double COMMISSION = 0.02; // commission at 2%
+
+        double shareTotal, commissionTotal, totalStocks;
+
+        // cost of total shares without commission 
+        shareTotal = shares * pricePerShare;
+
+        // shares commission percentage
+        commissionTotal = COMMISSION * shareTotal;
+
+        // cost of total shares with commission 
+        totalStocks = shareTotal + commissionTotal;
+        // Output
+        System.out.println("Amount paid for stock (without commission): $" + shareTotal);
+        System.out.println("Amount of commission: $" + commissionTotal );
+        System.out.println("Total amount paid (stock + commission): $" + totalStocks);
+
     }
-    
+
 }

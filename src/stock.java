@@ -4,12 +4,33 @@
 * calculate the total amount sold and the quantity remaining, 
 * if the number of sales and quantity purchased is not known in advance. 
 * Terminate the data by entering 0 for quantity.  
-*/
+ */
+
+import java.util.Scanner;
 
 public class stock {
-    
-    public static void main (String[] args){
+
+    static Scanner userInput = new Scanner(System.in);
+
+    public static void main(String[] args) {
+
+        int stock = 457;
+        int quantity = -1;
+        int netStock;
+
+        while (quantity != 0) {
+            System.out.print("\nEnter the number of items: ");
+            quantity = userInput.nextInt();
+
+            netStock = stock - quantity;
+            System.out.println("\nThe number of items purchased from the stock was: " + quantity + "\n"
+                    + "Number of items left in the stock is: " +  netStock); 
+
+            stock = netStock;
+        }
         
+        System.exit(0);
+
     }
-    
+
 }
