@@ -4,12 +4,88 @@
 * sorted in order of rainfall, from high to low.
 *
 * Input Validation: Do not accept negative numbers for monthly rainfall figures.
-*/
+ */
+
+import java.text.DecimalFormat;
+import java.util.Scanner;
 
 public class rainfallStatistics {
-    
-    public static void main (String[] args){
-        
+
+    static Scanner userInput = new Scanner(System.in);
+    static DecimalFormat roundOff = new DecimalFormat();
+
+    public static void main(String[] args) {
+
+        // variables
+        final int MONTHS = 12;
+        String name[MONTHS] = { "January","February","March","April","May","June","July","August","September","October","November","December"}; // array of months
+        int counter = 0;
+        double rain[MONTHS]; // array to record inches of rain per month
+        double avgYearRain;
+        double year = 0;
+        double high;
+        double low;
+        String highestMonth;
+        String lowestMonth;
+
+        // for loop used to asked user the amount of inches of rain for each month
+        for (counter = 0; counter < MONTHS; counter++) {
+            System.out.print("How many inches of rain does " + name[counter] + " have?: ");
+            rain[counter] = userInput.nextDouble();
+            while (rain[counter] < 0) {
+                System.out.println("Please enter a number greater than 0.");
+                rain[counter] = userInput.nextDouble();
+            }
+        }
+
+        // for loop used to add all the inches together from each month
+        for (counter = 0; counter < MONTHS; counter++) {
+            year += rain[counter];
+        }
+        avgYearRain = year / MONTHS;
+
+        System.out.println();
+
+        System.out.println(" -------------------------------------------------");
+        System.out.println("Months" + "Inches of Rainfall");
+        System.out.println("--------------------------------------------------");
+
+        // for loop used to display each month along with its inches of rain
+        for (counter = 0; counter < MONTHS; counter++) {
+            System.out.println(name[counter] + rain[counter]);
+        }
+        System.out.println(" -------------------------------------------------");
+
+        // finds month with the highest amount of rain
+        high = rain[1];
+        for (counter = 0; counter < MONTHS; counter++) {
+            if (rain[counter] > high) {
+                highestMonth = name[counter];
+                high = rain[counter];
+            }
+        }
+
+        // finds month with the lowest amount of rain
+        low = rain[1];
+        for (counter = 0; counter < MONTHS; counter++) {
+            if (rain[counter] < low) {
+                lowestMonth = name[counter];
+                low = rain[counter];
+            }
+        }
+
+        // outputs total yearly rainfaill, average monthly rainfall, highest and lowest months
+        System.out.println();
+
+        System.out.println("Total Rainfall for the year: " + year + " inches");
+        System.out.println("Monthly average rainfall: " + avgYearRain + " inches");
+        System.out.println("Month with highest amount of rainfall : "
+                + highestMonth + " with " + high + " inches.");
+        System.out.println("Month with lowest amount of rainfall: "
+                + lowestMonth + " with " + low + " inches.");
+
+        System.out.println();
+
     }
-    
+
 }
