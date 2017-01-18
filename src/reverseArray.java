@@ -11,42 +11,42 @@ public class reverseArray {
     static Scanner userInput = new Scanner(System.in);
 
     public static void main(String[] args) {
-
-        final int SIZE = 7;
-        int numbers[SIZE] = { 2, 34, 11, 155, 69, 101, 0 };
+        
+        int SIZE = 0;
+        int numbers = 0;
 
         // function call
         showReverseArray(numbers, SIZE);
 
     }
 
-    public static void showReverseArray(int values[], int size) {
-        // Make nums point to values.
-        int[] nums = values;
+    public static void showReverseArray(int values, int arraySize) {
+        int size, i, j, temp;
+        int arr[] = new int[50];
 
-        // Display the elements in the original array.
-        System.out.println("The elements of the original array are: ");
+        System.out.print("Enter Array Size : ");
+        size = userInput.nextInt();
 
-        // Displaying the first element of the array.
-        System.out.print(nums + " ");
-
-        // Making nums point to the subsequent elements
-        while (nums < values[size - 1]) {
-            nums++;
-            // Display the subsequent elements
-            System.out.print(nums + " ");
+        System.out.print("Enter Array Elements : ");
+        for (i = 0; i < size; i++) {
+            arr[i] = userInput.nextInt();
         }
 
-        System.out.println("\nThe elements of the reversed array are: ");
-        System.out.print(nums + " ");  // To display the first element
+        j = i - 1;     // now j will point to the last element
+        i = 0;         // and i will point to the first element
 
-        while (nums > values) {
-            // Move backward to the previous element.
-            nums--;
-            // Display the elements that nums point to.
-            System.out.print(nums + " ");
+        while (i < j) {
+            temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+            i++;
+            j--;
         }
-        System.out.println();
+
+        System.out.println("Reverse of Array is : ");
+        for (i = 0; i < size; i++) {
+            System.out.print(arr[i] + "  ");
+        }
     }
 
 }
