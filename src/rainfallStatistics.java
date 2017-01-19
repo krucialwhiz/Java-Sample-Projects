@@ -12,21 +12,21 @@ import java.util.Scanner;
 public class rainfallStatistics {
 
     static Scanner userInput = new Scanner(System.in);
-    static DecimalFormat roundOff = new DecimalFormat();
+    static DecimalFormat roundOff = new DecimalFormat("0.00");
 
     public static void main(String[] args) {
 
         // variables
         final int MONTHS = 12;
-        String name[MONTHS] = { "January","February","March","April","May","June","July","August","September","October","November","December"}; // array of months
+        String name[] = new String[]  { "January","February","March","April","May","June","July","August","September","October","November","December"}; // array of months
         int counter = 0;
-        double rain[MONTHS]; // array to record inches of rain per month
+        double rain [] = new double[100000] ; // array to record inches of rain per month
         double avgYearRain;
         double year = 0;
         double high;
         double low;
-        String highestMonth;
-        String lowestMonth;
+        String highestMonth = "";
+        String lowestMonth = "";
 
         // for loop used to asked user the amount of inches of rain for each month
         for (counter = 0; counter < MONTHS; counter++) {
@@ -52,7 +52,7 @@ public class rainfallStatistics {
 
         // for loop used to display each month along with its inches of rain
         for (counter = 0; counter < MONTHS; counter++) {
-            System.out.println(name[counter] + rain[counter]);
+            System.out.println(name[counter] + " \t\t" + rain[counter]);
         }
         System.out.println(" -------------------------------------------------");
 
@@ -77,12 +77,12 @@ public class rainfallStatistics {
         // outputs total yearly rainfaill, average monthly rainfall, highest and lowest months
         System.out.println();
 
-        System.out.println("Total Rainfall for the year: " + year + " inches");
-        System.out.println("Monthly average rainfall: " + avgYearRain + " inches");
+        System.out.println("Total Rainfall for the year: " + roundOff.format(year) + " inches");
+        System.out.println("Monthly average rainfall: " + roundOff.format(avgYearRain) + " inches");
         System.out.println("Month with highest amount of rainfall : "
-                + highestMonth + " with " + high + " inches.");
+                + highestMonth + " with " + roundOff.format(high) + " inches.");
         System.out.println("Month with lowest amount of rainfall: "
-                + lowestMonth + " with " + low + " inches.");
+                + lowestMonth + " with " + roundOff.format(low) + " inches.");
 
         System.out.println();
 

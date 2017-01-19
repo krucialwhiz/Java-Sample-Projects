@@ -11,16 +11,13 @@ public class reverseArray {
     static Scanner userInput = new Scanner(System.in);
 
     public static void main(String[] args) {
-        
-        int SIZE = 0;
-        int numbers = 0;
 
         // function call
-        showReverseArray(numbers, SIZE);
+        showReverseArray();
 
     }
 
-    public static void showReverseArray(int values, int arraySize) {
+    public static void showReverseArray() {
         int size, i, j, temp;
         int arr[] = new int[50];
 
