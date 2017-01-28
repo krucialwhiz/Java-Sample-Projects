@@ -29,8 +29,8 @@ public class distancePerTankOfGas {
         numberOfGallons = userInput.nextInt(); // input statement (accepts number of gallons)
 
         // calculations for distance traveled in town/ on highway
-        distanceTown = numberOfGallons * avgMPGHighway;
-        distanceHighway = numberOfGallons * avgMPGTown;
+        distanceTown = numberOfGallons * avgMPGTown;
+        distanceHighway = numberOfGallons * avgMPGHighway;
 
         // final output. Displays  distance traveled for town & highway
         System.out.println();
